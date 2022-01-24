@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF3260BA279D858F00980DD7 /* GameProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3260B9279D858F00980DD7 /* GameProtocols.swift */; };
+		CF3260BC279D85A900980DD7 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3260BB279D85A900980DD7 /* GameObject.swift */; };
+		CF3260BE279D85BF00980DD7 /* Reel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3260BD279D85BF00980DD7 /* Reel.swift */; };
+		CF3260C0279D9D1B00980DD7 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3260BF279D9D1B00980DD7 /* Button.swift */; };
+		CF3260C2279DF30B00980DD7 /* ButtonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3260C1279DF30B00980DD7 /* ButtonObject.swift */; };
 		CF9F830327976DE4009DC984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F830227976DE4009DC984 /* AppDelegate.swift */; };
 		CF9F830527976DE4009DC984 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF9F830427976DE4009DC984 /* GameScene.sks */; };
 		CF9F830727976DE4009DC984 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF9F830627976DE4009DC984 /* Actions.sks */; };
@@ -18,6 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF3260B9279D858F00980DD7 /* GameProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocols.swift; sourceTree = "<group>"; };
+		CF3260BB279D85A900980DD7 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		CF3260BD279D85BF00980DD7 /* Reel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reel.swift; sourceTree = "<group>"; };
+		CF3260BF279D9D1B00980DD7 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		CF3260C1279DF30B00980DD7 /* ButtonObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonObject.swift; sourceTree = "<group>"; };
 		CF9F82FF27976DE4009DC984 /* Slots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9F830227976DE4009DC984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF9F830427976DE4009DC984 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -40,9 +50,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF3260B7279D853B00980DD7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CF3260B9279D858F00980DD7 /* GameProtocols.swift */,
+				CF3260BB279D85A900980DD7 /* GameObject.swift */,
+				CF3260C1279DF30B00980DD7 /* ButtonObject.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		CF3260B8279D854F00980DD7 /* GameObject */ = {
+			isa = PBXGroup;
+			children = (
+				CF3260BD279D85BF00980DD7 /* Reel.swift */,
+				CF3260BF279D9D1B00980DD7 /* Button.swift */,
+			);
+			path = GameObject;
+			sourceTree = "<group>";
+		};
 		CF9F82F627976DE4009DC984 = {
 			isa = PBXGroup;
 			children = (
+				CF3260B8279D854F00980DD7 /* GameObject */,
+				CF3260B7279D853B00980DD7 /* Core */,
 				CF9F830127976DE4009DC984 /* Slots */,
 				CF9F830027976DE4009DC984 /* Products */,
 			);
@@ -144,9 +175,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF3260C2279DF30B00980DD7 /* ButtonObject.swift in Sources */,
+				CF3260C0279D9D1B00980DD7 /* Button.swift in Sources */,
 				CF9F830927976DE4009DC984 /* GameScene.swift in Sources */,
+				CF3260BE279D85BF00980DD7 /* Reel.swift in Sources */,
+				CF3260BA279D858F00980DD7 /* GameProtocols.swift in Sources */,
 				CF9F830B27976DE4009DC984 /* GameViewController.swift in Sources */,
 				CF9F830327976DE4009DC984 /* AppDelegate.swift in Sources */,
+				CF3260BC279D85A900980DD7 /* GameObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
