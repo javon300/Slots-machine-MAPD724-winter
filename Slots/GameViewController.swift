@@ -1,9 +1,10 @@
-//
-//  GameViewController.swift
-//  Slots
-//
-//  Created by javon maxwell on 2022-01-18.
-//
+/*
+ File name: slots - slot machine mobile game
+ Author's name: Matthew Maxwell
+ StudentID: 301200258
+ Date: jan/23/2022
+ App description:   a mobile game with three wheels that spin on button press. this is a game of chance
+*/
 
 import UIKit
 import SpriteKit
