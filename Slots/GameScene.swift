@@ -9,7 +9,8 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 import UIKit
-
+import Firebase
+import FirebaseDatabase
 
 class GameScene: SKScene
 {
@@ -41,6 +42,13 @@ class GameScene: SKScene
     private var balance: Int = 1000
     private var amountToBet: Int = 0
     private var jackpot: Int = 10000
+    private var highPayout:Int = 0
+    private var payout:Int = 000
+    
+    //database reference
+    
+
+    
     
     
 
@@ -122,8 +130,37 @@ class GameScene: SKScene
         
         self.background = self.childNode(withName: "//background") as? SKSpriteNode
       jackpotAmount?.zPosition = 0      //above background
+
+        //retreive highest val from firebase when app loads
+        readFromDb()
+        print("retrieved from db")
     }
     
+    func writeToDb()
+    {
+        //var ref: DatabaseReference!
+        var ref = Database.database().reference()
+        ref.child("highestPay").setValue(String(payout))
+        //ref.child("highestPay").setValue(["username": highPayout])
+    }
+    
+    //read and sets highPayout value from database
+    func readFromDb()
+    {
+        
+        var ref = Database.database().reference()
+        ref.child("highestPay").getData(completion:  { error, snapshot in
+          guard error == nil else {
+            print(error!.localizedDescription)
+            return;
+          }
+            var newHighPayout = snapshot.value as? String ?? "Unknown";
+            self.highPayout = Int(newHighPayout)!
+            
+            print(newHighPayout + "this it my bro")
+        });
+        
+    }
     
     
     //****************************************??????  Custom functions  ??????++++++++++++++++++++++++++++++++++++++++++++++++
@@ -208,8 +245,13 @@ class GameScene: SKScene
             self.view?.window?.rootViewController?.present(alert, animated: true, completion: nil)
             
             //money calculations
-            balance += jackpot
+            payout = jackpot
+            balance += payout
             balanceAmount?.text = String (balance)
+            
+            //if payout check
+            if (highPayout < payout)
+            {writeToDb() }   //write payout to db
         }
         //if 2 matches
         else if (currentWheelValue1 == currentWheelValue2 || currentWheelValue1 == currentWheelValue3 || currentWheelValue2 == currentWheelValue3)
@@ -221,8 +263,13 @@ class GameScene: SKScene
             self.view?.window?.rootViewController?.present(alert, animated: true, completion: nil)
             
             //money calculations
-            balance += amountToBet * 2
+            payout = amountToBet * 2
+            balance += payout
             balanceAmount?.text = String (balance)
+            
+            //if payout check
+            if (highPayout < payout)
+            {writeToDb() }   //write payout to db
         }
         //if loose
         else
@@ -234,7 +281,7 @@ class GameScene: SKScene
             balanceAmount?.text = String (balance)
             betAmount?.text = "0"
         }
-            
+        
 }
     
 
